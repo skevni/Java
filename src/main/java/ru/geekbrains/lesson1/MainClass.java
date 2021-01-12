@@ -42,8 +42,8 @@ public class MainClass {
         userGreeting(myName);
 
         // step 8
-        short curYear = 1704;
-        System.out.println("Step 6 result:\n\t " + curYear + (isLeapYear(curYear) ? " year is a leap year!" : " year is not a leap year!"));
+        short curYear = 1900;
+        System.out.println("Step 8 result:\n\t " + curYear + (isLeapYear(curYear) ? " year is a leap year!" : " year is not a leap year!"));
 
     }
 
@@ -95,12 +95,15 @@ public class MainClass {
         Каждый 4-й год является високосным, кроме каждого 100-го, при этом каждый 400-й – високосный.
     */
     public static boolean isLeapYear(short varYear) {
+//        if (varYear % 4 == 0) {
+//            if (varYear % 100 != 0) {
+//                return true;
+//            } else {
+//                return varYear % 400 == 0;
+//            }
+//        }
         if (varYear % 4 == 0) {
-            if (varYear % 100 != 0) {
-                return true;
-            } else {
-                return varYear % 400 == 0;
-            }
+             return  varYear % 100 != 0 || (varYear % 100 == 0 && varYear % 400 == 0);
         }
         return false;
     }
