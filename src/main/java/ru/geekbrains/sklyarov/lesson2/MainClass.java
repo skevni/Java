@@ -37,7 +37,6 @@ public class MainClass {
         System.out.println("Task 5");
         minAndMaxNumberInArray();
 
-
     }
 
     /*
