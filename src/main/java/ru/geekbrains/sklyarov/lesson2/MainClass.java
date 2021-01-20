@@ -13,7 +13,7 @@ public class MainClass {
         // task 7
         System.out.println("Task 7");
         int[] arr7 = {3, 5, 6, 1, 2, 4};
-        System.out.println(Arrays.toString(arrayShift(arr7, -2)));
+        System.out.println(Arrays.toString(arrayShift(arr7, -23)));
 
         // ОСТАЛЬНЫЕ ЗАДАНИЯ НА ВСЯКИЙ СЛУЧАЙ, ЕСЛИ ОШИБКИ В 6 И 7 ЗАДАНИЯХ
 
@@ -36,6 +36,8 @@ public class MainClass {
         // task 5.
         System.out.println("Task 5");
         minAndMaxNumberInArray();
+
+
 
     }
 
@@ -70,6 +72,8 @@ public class MainClass {
                 accumulatedVar += j;
                 if (accumulatedVar == (sumElements / 2)) {
                     return true;
+                } else if (accumulatedVar > (sumElements / 2)) {
+                    return false;
                 }
             }
         }
@@ -85,35 +89,24 @@ public class MainClass {
     При каком n в какую сторону сдвиг можете выбирать сами.
      */
     public static int[] arrayShift(int[] arr, int stepShift) {
-
-        stepShift = Math.abs(stepShift) >= arr.length ? (stepShift < 0 ? arr.length + stepShift : stepShift - arr.length)
-                : stepShift;
-        // нет сдвига
-        if (stepShift == 0) {
+        // нет сдвига или массив пустой
+        if (stepShift == 0 || arr.length == 0) {
             return arr;
         }
-        int tempNumb, tempStep = 0;
-        // прямое смещение (сдвиг вправо)
-        if (stepShift > 0) {
-            while (tempStep < stepShift) {
-                for (int i = 0; i < arr.length - 1; i++) {
-                    tempNumb = arr[i];
-                    arr[i] = arr[arr.length - 1];
-                    arr[arr.length - 1] = tempNumb;
-                }
-                tempStep++;
-            }
-        } else { // обратное смещение (сдвиг влево)
-            while (tempStep > stepShift) {
-                for (int i = 0; i < arr.length - 1; i++) {
-                    tempNumb = arr[i];
-                    arr[i] = arr[i + 1];
-                    arr[i + 1] = tempNumb;
-                }
-                tempStep--;
-            }
+        stepShift = stepShift % arr.length;
+        // финт ушами, чтобы только сдвигаться права
+        if (stepShift < 0) {
+            stepShift += arr.length;
         }
-
+        int tempNumber;
+        for (int i = 0; i < stepShift; i++) {
+            tempNumber = arr[arr.length - 1];
+//            for (int j = arr.length - 1; j > 0; j--) {
+//                arr[j] = arr[j - 1];
+//            }
+            System.arraycopy(arr, 0, arr, 1, arr.length - 1);
+            arr[0] = tempNumber;
+        }
         return arr;
     }
 
@@ -164,14 +157,19 @@ public class MainClass {
     public static void createTwoDimensionalIntegerArray() {
         int[][] arr = new int[10][10];
         for (int i = 0; i < arr.length; i++) {
-            for (int j = 0; j < arr[i].length; j++) {
-                if (i == j || j == arr.length - i - 1) {
-                    arr[i][j] = 1;
-                }
-                System.out.print(arr[i][j] + " ");
-            }
-            System.out.println();
+//            for (int j = 0; j < arr[i].length; j++) {
+//                if (i == j || j == arr.length - i - 1) {
+//                    arr[i][j] = 1;
+//                }
+
+//                System.out.print(arr[i][j] + " ");
+//            }
+//            System.out.println();
+            arr[i][i] = 1;
+            arr[i][arr.length -1 - i] = 1;
+            System.out.println(Arrays.toString(arr[i]));
         }
+
     }
 
     /*
