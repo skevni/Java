@@ -18,7 +18,6 @@ public class MainApp {
 
         guessNumber(10, 3);
 
-
     }
 
     /* Task 2
@@ -52,7 +51,7 @@ public class MainApp {
                 char[] guessedLetters = {'#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#'};
                 for (int i = 0; i < hiddenWord.length(); i++) {
                     for (int j = 0; j < userWord.length(); j++) {
-                        if (hiddenWord.charAt(i) == userWord.charAt(j)) {
+                        if (hiddenWord.charAt(i) == userWord.charAt(j) && i == j) {
                             guessedLetters[i] = hiddenWord.charAt(i);
                             break;
                         }
