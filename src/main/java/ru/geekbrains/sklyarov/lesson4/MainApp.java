@@ -1,6 +1,5 @@
 package ru.geekbrains.sklyarov.lesson4;
 
-
 import java.util.Random;
 import java.util.Scanner;
 
@@ -75,7 +74,7 @@ public class MainApp {
     public static void humanTurn() {
         System.out.println("Выберите место на поле для хода в формате \"x y\"\nГде x - это число по горизонтали, " +
                 "у - по вертикали");
-        int x, y ;
+        int x, y;
         do {
             x = sc.nextInt() - 1;
             y = sc.nextInt() - 1;
@@ -95,15 +94,6 @@ public class MainApp {
     }
 
     public static boolean checkWin(char player) {
-//        for (int i = 0; i < SIZE; i++) {
-//            for (int j = 0; j < SIZE; j++) {
-//                if (map[i][j] == player) {
-//                    if (checkLines(i, j, player)){
-//                        continue;
-//                    }
-//                }
-//            }
-//        }
         // Только для поля 3 х 3
         int horizontalLine, verticalLine, diagonalUp, diagonalDown;
         horizontalLine = verticalLine = diagonalUp = diagonalDown = 0;
@@ -135,12 +125,6 @@ public class MainApp {
         return diagonalUp == CHIPS_TO_WIN || diagonalDown == CHIPS_TO_WIN;
     }
 
-    // в этой функции мы проверяем линию слева на право
-//    private static boolean checkLines(int x, int y, char playerChip) {
-//
-//        return false;
-//    }
-
     public static boolean isEmpty(int x, int y) {
         return map[x][y] != EMPTY_FIELD;
     }
@@ -158,5 +142,4 @@ public class MainApp {
         }
         return true;
     }
-
 }
