@@ -4,8 +4,8 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class MainApp {
-    public static int SIZE = 3;
-    public static int CHIPS_TO_WIN = 3;
+    public static int SIZE = 5;
+    public static int CHIPS_TO_WIN = 4;
     public static final char CHIP_HUMAN = 'X';
     public static final char CHIP_AI = '0';
     public static final char EMPTY_FIELD = '*';
@@ -94,7 +94,7 @@ public class MainApp {
     }
 
     public static boolean checkWin(char player) {
-        // Только для поля 3 х 3
+    // без смещения диагоналей
         int horizontalLine, verticalLine, diagonalUp, diagonalDown;
         horizontalLine = verticalLine = diagonalUp = diagonalDown = 0;
 
@@ -109,20 +109,36 @@ public class MainApp {
                         // диагональ слева на право, cнизу вверх
                         diagonalUp++;
                     }
-                    if (++horizontalLine == CHIPS_TO_WIN) {
+                    if (++horizontalLine >= CHIPS_TO_WIN) {
+                        System.out.println("Horizontal");
                         return true;
+                    }
+                } else {
+                    horizontalLine = 0;
+                    if (i == j) {
+                        // диагональ слева на право, сверху вниз
+                        diagonalDown = 0;
+                    }
+                    if (i == SIZE - j - 1) {
+                        // диагональ слева на право, cнизу вверх
+                        diagonalUp = 0;
                     }
                 }
                 if (map[i][j] == player) {
-                    if (++verticalLine == CHIPS_TO_WIN) {
+                    if (++verticalLine >= CHIPS_TO_WIN) {
+                        System.out.println("Vertical");
                         return true;
                     }
+                } else {
+                    verticalLine = 0;
                 }
             }
             horizontalLine = 0;
             verticalLine = 0;
         }
-        return diagonalUp == CHIPS_TO_WIN || diagonalDown == CHIPS_TO_WIN;
+        if (diagonalUp >= CHIPS_TO_WIN) System.out.println("Диагональ вверх");
+        if (diagonalDown >= CHIPS_TO_WIN) System.out.println("Диагональ вниз");
+        return diagonalUp >= CHIPS_TO_WIN || diagonalDown >= CHIPS_TO_WIN;
     }
 
     public static boolean isEmpty(int x, int y) {
