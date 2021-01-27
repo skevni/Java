@@ -30,4 +30,8 @@ public class Fridge {
         System.out.printf("Производитель: %s; Модель: %s; Ширина: %f; Высота: %f; Глубина: %f; Объем холодильной камеры: %f;" +
                 " Объем морозильной камеры: %f",manufacturer,model,width,height,depth,volume,volumeOfFreezer);
     }
+
+    public float getVolumeOfDimension(){
+        return width * height * depth;
+    }
 }
