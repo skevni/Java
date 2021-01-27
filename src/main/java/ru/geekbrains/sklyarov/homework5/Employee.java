@@ -6,7 +6,7 @@ public class Employee {
     private float salary;
 
     public int getAge(){
-        return this.age;
+        return age;
     }
 
     public Employee(String family, String position, String email, String phone, float salary, int age){
