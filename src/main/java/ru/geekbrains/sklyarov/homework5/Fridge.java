@@ -12,8 +12,8 @@ public class Fridge {
         return volumeOfFreezer;
     }
 
-    public float setVolume(float volume){
-        return this.volume = volume;
+    public void setVolume(float volume){
+        this.volume = volume;
     }
 
     public Fridge(String manufacturer, String model, float width, float height, float depth, float volume, float volumeOfFreezer) {
