@@ -2,7 +2,7 @@ package ru.geekbrains.sklyarov.homework6;
 
 public class MainApp {
     public static void main(String[] args) {
-
+        // version 2
         // tasks 1-3
         Cat cat = new Cat("Барсик");
 
