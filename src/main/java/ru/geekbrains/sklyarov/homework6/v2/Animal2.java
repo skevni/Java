@@ -1,6 +1,6 @@
-package ru.geekbrains.sklyarov.homework6;
+package ru.geekbrains.sklyarov.homework6.v2;
 
-public abstract class Animal {
+public abstract class Animal2 {
     private String name, color;
     private float age;
     private double obstacleLength;
@@ -8,7 +8,7 @@ public abstract class Animal {
     /*
         Constructors
      */
-    public Animal(String name) {
+    public Animal2(String name) {
         this.name = name;
     }
 
@@ -56,4 +56,12 @@ public abstract class Animal {
      */
     protected abstract void run(double obstacleLength);
 
+    protected int getCount(Animal2[] animals){
+        int count = 0;
+        for (Animal2 a :
+                animals) {
+            count++;
+        }
+        return count;
+    }
 }
