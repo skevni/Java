@@ -32,7 +32,7 @@ public class MainApp {
         System.out.println();
         Cat cat6 = new Cat("Семен");
         cat6.eat(plate);
-        System.out.printf("%s сытый (-ая): %b\n",cat6.getName(), cat6.isHungry());
+        System.out.printf("%s сытый (-ая): %b\n",cat6.getName(), !cat6.isHungry());
         plate.info();
     }
 }
