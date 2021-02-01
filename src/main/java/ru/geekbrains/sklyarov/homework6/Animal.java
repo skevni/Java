@@ -1,59 +1,45 @@
 package ru.geekbrains.sklyarov.homework6;
 
 public abstract class Animal {
-    private String name, color;
-    private float age;
-    private double obstacleLength;
+    String name;
+    private static int animalCount = 0;
+    double max_obstacle_run;
+    double max_obstacle_swim;
 
     /*
         Constructors
      */
-    public Animal(String name) {
-        this.name = name;
+    public Animal() {
+        animalCount++;
     }
 
-    /*
-        Setters and Getters
-     */
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
-    }
-
-    public float getAge() {
-        return age;
-    }
-
-    public void setAge(float age) {
-        if (age>0) {
-            this.age = age;
-        }
-    }
-
-    public double getObstacleLength() {
-        return obstacleLength;
-    }
-
-    public void setObstacleLength(double obstacleLength) {
-        if (obstacleLength>=0){
-            this.obstacleLength = obstacleLength;
-        }
+    public int getAnimalCount() {
+        return animalCount;
     }
 
     /*
         Methods
      */
-    protected abstract void run(double obstacleLength);
+    protected void run(double obstacleLength) {
+        if (max_obstacle_run == 0){
+            System.out.println(name + " не умеет бегать!");
+        }
+        if (obstacleLength <= max_obstacle_run) {
+            System.out.printf("%s пробежал %f м.\n", name, obstacleLength);
+        } else {
+            System.out.printf("%s может пробежать максимум %f м.\n", name, max_obstacle_run);
+        }
+    }
+    protected void swim(double obstacleLength) {
+        if (max_obstacle_swim == 0){
+            System.out.println(name + " не умеет плавать!");
+            return;
+        }
+        if (obstacleLength <= max_obstacle_swim) {
+            System.out.printf("%s проплыл %f м.\n", name, obstacleLength);
+        } else {
+            System.out.printf("%s не может проплыть %f м.\n", name, max_obstacle_swim);
+        }
+    }
 
 }

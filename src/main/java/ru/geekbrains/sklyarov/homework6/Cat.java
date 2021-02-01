@@ -1,17 +1,15 @@
 package ru.geekbrains.sklyarov.homework6;
 
-public class Cat extends Animal{
-    private final static double MAX_OBSTACLE_RUN = 200;
-    public Cat(String name){
-        super(name);
+public class Cat extends Animal {
+    private static int catsCount = 0;
+    public Cat(String name) {
+        this.name = name;
+        this.max_obstacle_run = 150;
+        this.max_obstacle_swim = 0;
+        catsCount++;
+    }
+    public int getCatsCount(){
+        return catsCount;
     }
 
-    @Override
-    protected void run(double obstacleLength) {
-        if (obstacleLength > 0 && obstacleLength <= MAX_OBSTACLE_RUN){
-            System.out.printf(super.getName() + " пробежал (-а) %f м.\n", obstacleLength);
-        } else {
-            System.out.println("У кошки максимальное ограничение для бега: " + MAX_OBSTACLE_RUN + " м.");
-        }
-    }
 }

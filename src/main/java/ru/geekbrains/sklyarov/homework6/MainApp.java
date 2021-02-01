@@ -1,41 +1,18 @@
 package ru.geekbrains.sklyarov.homework6;
 
 public class MainApp {
+
     public static void main(String[] args) {
+        Cat cat = new Cat("Пушок");
+        Cat cat2 = new Cat("Персик");
+        Dog dog = new Dog("Тузик");
+        Dog dog2 = new Dog("Шарик");
 
-        // tasks 1-3
-        Cat cat = new Cat("Барсик");
-
-        cat.setObstacleLength(200);
-        cat.run(155.86);
-
-        Dog dog = new Dog("Шарик");
-        dog.run(550);
-        dog.swim(9.5);
-
-        // task 4*
-        Animal[] animals = {
-                new Cat("Барсик"),
-                new Cat("Персик"),
-                new Cat("Дымок"),
-                new Dog("Шарик"),
-                new Dog("Рэкс")
-
-        };
-
-        int cats = 0, dogs = 0;
-        System.out.println( "Всего животных: " + animals.length);
-        for (Animal a :
-                animals) {
-            if (a instanceof Cat){
-                cats++;
-            }
-            if (a instanceof Dog){
-                dogs++;
-            }
-        }
-        System.out.println( "Котов: " + cats);
-        System.out.println( "Собак: " + dogs);
-
+        cat.run(59);
+        dog.run(345);
+        cat2.swim(10);
+        cat2.run(55);
+        dog2.run(566);
+        dog2.swim(15);
     }
 }
