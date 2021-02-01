@@ -6,9 +6,11 @@ public class Cat extends Animal {
         this.name = name;
         this.max_obstacle_run = 150;
         this.max_obstacle_swim = 0;
+        this.type = "Кот";
         catsCount++;
     }
-    public int getCatsCount(){
+
+    public static int getCount(){
         return catsCount;
     }
 

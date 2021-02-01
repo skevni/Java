@@ -14,5 +14,10 @@ public class MainApp {
         cat2.run(55);
         dog2.run(566);
         dog2.swim(15);
+
+        System.out.println(Animal.getCount());
+        System.out.println(Cat.getCount());
+        System.out.println(Dog.getCount());
+
     }
 }

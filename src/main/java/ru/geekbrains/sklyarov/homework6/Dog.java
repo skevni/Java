@@ -7,10 +7,11 @@ public class Dog extends Animal{
         this.name = name;
         this.max_obstacle_run = 500;
         this.max_obstacle_swim = 55;
+        this.type = "Пес";
         dogsCount++;
     }
 
-    public int getDogsCount(){
+    public static int getCount(){
         return dogsCount;
     }
 }
