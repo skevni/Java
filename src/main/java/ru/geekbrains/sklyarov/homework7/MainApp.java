@@ -17,7 +17,7 @@ public class MainApp {
         for (Cat cat :
                 cats) {
             cat.eat(plate);
-            System.out.printf("%s сытый (-ая): %b\n",cat.getName(), cat.isFullOfFood());
+            System.out.printf("%s сытый (-ая): %b\n",cat.getName(), !cat.isHungry());
         }
         plate.info();
         System.out.println();
@@ -26,13 +26,13 @@ public class MainApp {
 
         for (Cat cat :
                 cats) {
-            System.out.printf("%s сытый (-ая): %b\n",cat.getName(), cat.isFullOfFood());
+            System.out.printf("%s сытый (-ая): %b\n",cat.getName(), !cat.isHungry());
         }
         plate.info();
         System.out.println();
         Cat cat6 = new Cat("Семен");
         cat6.eat(plate);
-        System.out.printf("%s сытый (-ая): %b\n",cat6.getName(), cat6.isFullOfFood());
+        System.out.printf("%s сытый (-ая): %b\n",cat6.getName(), cat6.isHungry());
         plate.info();
     }
 }

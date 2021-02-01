@@ -16,7 +16,7 @@ public class Cat {
         return name;
     }
 
-    public boolean isFullOfFood() {
+    public boolean isHungry() {
         return !hungry;
     }
 
