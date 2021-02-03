@@ -12,17 +12,23 @@ public class Cat {
         this.hungry = true;
     }
 
-    public String getName() {
-        return name;
-    }
+//    public String getName() {
+//        return name;
+//    }
 
     public boolean isHungry() {
-        return !hungry;
+        return hungry;
     }
 
     public void eat(Plate plate) {
-        if (plate.decreaseFood(appetite)) {
-            hungry = false; // сытый
+        if (hungry) {
+            if (plate.decreaseFood(appetite)) {
+                this.hungry = false; // сытый
+            }
         }
+    }
+
+    public void info() {
+        System.out.printf("%s - %s\n", name, (isHungry() ? "голоден (-на)" : "сытый (-ая)"));
     }
 }

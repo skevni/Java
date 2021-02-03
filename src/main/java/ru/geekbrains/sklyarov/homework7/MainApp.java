@@ -1,6 +1,7 @@
 package ru.geekbrains.sklyarov.homework7;
 
 public class MainApp {
+    //    public static boolean thereIsHungryCats = false;
     public static void main(String[] args) {
         Plate plate = new Plate(24);
         plate.info();
@@ -17,22 +18,26 @@ public class MainApp {
         for (Cat cat :
                 cats) {
             cat.eat(plate);
-            System.out.printf("%s сытый (-ая): %b\n",cat.getName(), !cat.isHungry());
+            cat.info();
         }
         plate.info();
         System.out.println();
-        plate.addFood(6);
-        cats[cats.length-1].eat(plate);
 
+        plate.addFood(9);
+        // для тестирования если остались голодные коты. Т.к. задания нет проверять все ли коты сыты, поэтому не
+        // делал такую проверку
         for (Cat cat :
                 cats) {
-            System.out.printf("%s сытый (-ая): %b\n",cat.getName(), !cat.isHungry());
+            cat.eat(plate);
+            cat.info();
         }
         plate.info();
         System.out.println();
+
         Cat cat6 = new Cat("Семен");
         cat6.eat(plate);
-        System.out.printf("%s сытый (-ая): %b\n",cat6.getName(), !cat6.isHungry());
+        cat6.info();
+
         plate.info();
     }
 }

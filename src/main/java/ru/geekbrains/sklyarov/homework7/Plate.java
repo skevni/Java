@@ -9,21 +9,26 @@ public class Plate {
     }
 
     public void addFood(int food) {
-        this.food += food;
+        if ((this.food + food) >= capacity) {
+            fillMax();
+        } else {
+            this.food += food;
+        }
     }
 
-    public boolean decreaseFood(int amount){
+    public boolean decreaseFood(int amount) {
         if (amount <= this.food) {
             this.food -= amount;
             return true;
         }
         return false;
     }
-    public void fillMax(){
+
+    public void fillMax() {
         food = capacity;
     }
 
-    public void info(){
+    public void info() {
         System.out.printf("Plate: %d / %d\n", food, capacity);
     }
 }
