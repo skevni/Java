@@ -16,9 +16,9 @@ public class Cat {
 //        return name;
 //    }
 
-    public boolean isHungry() {
-        return hungry;
-    }
+//    public boolean isHungry() {
+//        return hungry;
+//    }
 
     public void eat(Plate plate) {
         if (hungry) {
@@ -29,6 +29,6 @@ public class Cat {
     }
 
     public void info() {
-        System.out.printf("%s - %s\n", name, (isHungry() ? "голоден (-на)" : "сытый (-ая)"));
+        System.out.printf("%s - %s\n", name, (hungry ? "голоден (-на)" : "сытый (-ая)"));
     }
 }
